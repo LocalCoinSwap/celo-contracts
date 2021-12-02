@@ -32,10 +32,10 @@ We have deployed the contract `OnChainEscrow` on Celo forno. Here’s the link t
 
 There are four scripts under the `scripts` directory, each showing an example of different situations for on-chain escrow contract.
 
- 1. Successful trade between seller and buyer
- 2. Buyer cancels after the seller has funded the escrow
- 3. Dispute won by seller
- 4. Dispute won by the buyer
+ 1. Successful trade between seller and buyer
+ 2. Buyer cancels after the seller has funded the escrow
+ 3. Dispute won by seller
+ 4. Dispute won by the buyer
 
 ### 1. Successful trade between seller and buyer
 
@@ -49,11 +49,12 @@ npx hardhat run scripts/HappyCeloGoldTrade.ts
 
 #### What happens in the script?
 
- - We get the deployed contract
- - Approve the contract address via seller to spend funds on seller’s behalf
- - Prepare the escrow transaction and broadcast
- - The contract stores all the current trades in memory, we cross-check that
- - Finally, we release the escrowed funds to the buyer and this time through the relayer
+
+ - We fetch the deployed contract
+ - Approve the contract address via seller to spend funds on seller’s behalf
+ - Prepare the escrow transaction and broadcast
+ - The contract stores all the current trades in memory, we cross-check that
+ - Finally, we release the escrowed funds to the buyer and this time through the relayer
 
 The rest of the three situations follow similar patterns, but of course different execution paths.
 
