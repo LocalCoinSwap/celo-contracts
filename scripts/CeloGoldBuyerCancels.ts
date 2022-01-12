@@ -132,7 +132,7 @@ const releaseToSeller = async () => {
   const _v = signed.v;
 
   console.log("Add relayer to kit");
-  kit.connection.addAccount(relayer.privateKey);
+  kit.connection.addAccount(buyer.privateKey);
 
   console.log("Building release txn");
   const txObject = await instance.methods.relay(
@@ -149,7 +149,7 @@ const releaseToSeller = async () => {
   );
   console.log("Sending release txn");
   const tx = await kit.sendTransactionObject(txObject, {
-    from: relayer.address,
+    from: buyer.address,
   });
 
   const receipt = await tx.waitReceipt();
