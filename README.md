@@ -34,7 +34,7 @@ There are four scripts under the `scripts` directory, each showing an example of
 
  1. Successful trade between seller and buyer
  2. Buyer cancels after the seller has funded the escrow
- 3. Dispute won by seller
+ 3. Dispute won by the seller
  4. Dispute won by the buyer
 
 ### 1. Successful trade between seller and buyer

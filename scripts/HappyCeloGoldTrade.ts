@@ -100,6 +100,7 @@ const fundEscrow = async () => {
   const tx = await kit.sendTransactionObject(txObject, {
     from: seller.address,
   });
+  console.log("tx", tx);
 
   const receipt = await tx.waitReceipt();
   console.log(receipt);
@@ -131,8 +132,8 @@ const releaseEscrowToBuyer = async () => {
   const _s = bufferToHex(signed.s);
   const _v = signed.v;
 
-  console.log("Add relayer to kit");
-  kit.connection.addAccount(relayer.privateKey);
+  console.log("Add seller to kit");
+  kit.connection.addAccount(seller.privateKey);
 
   console.log("Building release txn");
   const txObject = await instance.methods.relay(
@@ -149,7 +150,7 @@ const releaseEscrowToBuyer = async () => {
   );
   console.log("Sending release txn");
   const tx = await kit.sendTransactionObject(txObject, {
-    from: relayer.address,
+    from: seller.address,
   });
 
   const receipt = await tx.waitReceipt();
